@@ -11,4 +11,9 @@
     <string name="fetch_user">Fetching User</string>
 
     <string name="search">Search</string>
+    <string name="content_description">User Image</string>
+    <string name="search_by_first_name">Search By First Name</string>
+    <string name="error_loading_clients">Error Loading Clients</string>
+    <string name="first_name">First Name</string>
+    <string name="last_name">Last Name</string>
 </resources>
