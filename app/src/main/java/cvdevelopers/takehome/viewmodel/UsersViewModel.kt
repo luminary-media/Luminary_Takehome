@@ -13,11 +13,11 @@ class UsersViewModel(
         private val repository: Repository
 ) : ViewModel() {
 
-    val usersList = MutableLiveData<List<Client>>()
+    val mUsersList = MutableLiveData<List<Client>>()
 
     fun getUsers(page: String = "1") = viewModelScope.launch(Dispatchers.IO) {
         Log.d("get users::", "getting users")
-        usersList.postValue(repository.getSearchResults(page))
+        mUsersList.postValue(repository.getSearchResults(page))
     }
 
     fun clearCache() {

@@ -17,7 +17,7 @@ typealias ClickListener = (Client) -> Unit
 class Adapter(private val clickListener: ClickListener) :
         RecyclerView.Adapter<Adapter.ViewHolder>() {
 
-    private var client: List<Client> = emptyList()
+    private var mClient: List<Client> = emptyList()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(
@@ -25,19 +25,19 @@ class Adapter(private val clickListener: ClickListener) :
         ) as LinearLayout
 
         val viewHolder = ViewHolder(view)
-        view.setOnClickListener { clickListener(client[viewHolder.adapterPosition]) }
+        view.setOnClickListener { clickListener(mClient[viewHolder.adapterPosition]) }
         return viewHolder
     }
 
-    override fun getItemCount(): Int = client.count()
+    override fun getItemCount(): Int = mClient.count()
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.bind(client[position])
+        holder.bind(mClient[position])
     }
 
     fun updateClient(client: List<Client>) {
-        val diffResult = DiffUtil.calculateDiff(ItemDiffCallback(this.client, client))
-        this.client = client
+        val diffResult = DiffUtil.calculateDiff(ItemDiffCallback(this.mClient, client))
+        this.mClient = client
         diffResult.dispatchUpdatesTo(this)
     }
 

@@ -10,7 +10,6 @@ import org.koin.dsl.module
 
 val ClientModule = module {
     single { ClientDatabase.getDataBase(androidContext()) }
-    single { RecipeRetrofit() }
     single { Repository(get()) }
     viewModel { UsersViewModel(get()) }
 }

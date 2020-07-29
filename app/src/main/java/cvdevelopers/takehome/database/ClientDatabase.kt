@@ -11,7 +11,7 @@ abstract class ClientDatabase : RoomDatabase() {
     abstract fun clientDao(): ClientDictionaryDao
 
     companion object {
-        private const val databaseName = "client"
+        private const val mDatabaseName = "client"
 
         @Volatile
         private var INSTANCE: ClientDatabase? = null
@@ -24,7 +24,7 @@ abstract class ClientDatabase : RoomDatabase() {
         private fun buildDatabase(context: Context) = Room.databaseBuilder(
             context.applicationContext,
             ClientDatabase::class.java,
-            databaseName
+            mDatabaseName
         ).build()
     }
 }

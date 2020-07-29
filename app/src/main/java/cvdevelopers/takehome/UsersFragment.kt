@@ -18,10 +18,10 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class UsersFragment : Fragment() {
 
-    private val clickListener: ClickListener = this::onClientClicked
-    private val viewModel: UsersViewModel by viewModel()
-    private var mAdapter = Adapter(clickListener)
-    private var dataSet = emptyList<Client>()
+    private val mClickListener: ClickListener = this::onClientClicked
+    private val mViewModel: UsersViewModel by viewModel()
+    private var mAdapter = Adapter(mClickListener)
+    private var mDataSet = emptyList<Client>()
 
     companion object {
         fun newInstance() = UsersFragment()
@@ -40,7 +40,7 @@ class UsersFragment : Fragment() {
 
         getUsers()
 
-        viewModel.usersList.observe(viewLifecycleOwner, Observer {
+        mViewModel.mUsersList.observe(viewLifecycleOwner, Observer {
             Log.d("observing::", "observing")
             renderClients(it)
         })
@@ -57,17 +57,17 @@ class UsersFragment : Fragment() {
     }
 
     private fun getUsers() {
-        viewModel.getUsers()
+        mViewModel.getUsers()
     }
 
     private fun clearDatabase() {
-        viewModel.clearCache()
+        mViewModel.clearCache()
     }
 
     private fun renderClients(clients: List<Client>) {
         Log.d("rendering clients::", "display client users")
         loadingIndicator.visibility = View.GONE
-        dataSet = clients
+        mDataSet = clients
         mAdapter.updateClient(clients)
         recyclerview.visibility = View.VISIBLE
     }
