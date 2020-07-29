@@ -4,14 +4,14 @@ import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import cvdevelopers.takehome.repository.Repository
 import cvdevelopers.takehome.models.Client
+import cvdevelopers.takehome.repository.Repository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-class UsersViewModel(
-        private val repository: Repository
+class viewmodel2( private val repository: Repository
 ) : ViewModel() {
+
 
     val mUsersList = MutableLiveData<List<Client>>()
 
@@ -20,11 +20,4 @@ class UsersViewModel(
         mUsersList.postValue(repository.getSearchResults(page))
     }
 
-    fun clearCache() {
-        viewModelScope.launch(Dispatchers.IO) {
-            repository.clearDatabase()
-        }
-    }
 }
-
-//picture,first, last, gender, email

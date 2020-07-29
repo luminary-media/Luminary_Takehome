@@ -41,6 +41,11 @@ class Repository(private val clientDatabase: ClientDatabase) {
         }
     }
 
+    suspend fun getClientsFromDatabase(clientLName: String): Client {
+        return clientDatabase.clientDao().getClient().json
+
+    }
+
     private suspend fun getDefinitionsFromServiceCall(page: String) {
         if (isRetrofitRequestInProgress) return
         else {

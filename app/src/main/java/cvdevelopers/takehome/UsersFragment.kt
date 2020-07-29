@@ -79,6 +79,10 @@ class UsersFragment : Fragment() {
     }
 
     private fun onClientClicked(client: Client) {
-        view?.let { Snackbar.make(it, client.name.first, Snackbar.LENGTH_LONG).show() }
+        val  bundle = Bundle()
+        bundle.putString("primary_key",client.name.last)
+
+        //handle fragment here
+//        view?.let { Snackbar.make(it, client.name.first, Snackbar.LENGTH_LONG).show() }
     }
 }

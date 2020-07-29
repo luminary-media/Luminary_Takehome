@@ -13,6 +13,9 @@ interface ClientDictionaryDao {
     @Query("DELETE FROM DatabaseEntity")
     suspend fun clearDatabase()
 
+    @Query("SELECT * FROM DatabaseEntity WHERE lastName LIKE :lName")
+    suspend fun getClient(lName: String): DatabaseEntity
+
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertWordDefinition(vararg databaseEntity: DatabaseEntity)
 }
