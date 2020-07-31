@@ -1,6 +1,5 @@
 package cvdevelopers.takehome.models
 
-data class ApiResponse (
-    val results: List<Client>
-){
-}
+data class ApiResponse(
+        val results: List<Client>
+)

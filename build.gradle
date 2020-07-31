@@ -40,3 +40,9 @@ compileTestKotlin {
         jvmTarget = "1.8"
     }
 }
+ext {
+    roomVersion = '2.2.1'
+    archLifecycleVersion = '2.2.0-rc02'
+    materialVersion = "1.0.0"
+    koin_version = "2.0.1"
+}
