@@ -1,0 +1,3 @@
+<resources>
+    <string name="client_api_base_url" translatable="false">https://randomuser.me</string>
+</resources>
